@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <%- include('fragments/css.ejs') %>
+        <title>Editar Empresa</title>
+    </head>
+    <body>
+        <%- include('fragments/navbar') %>
+
+        <div class="container">
+            <div class="card border-0 shadow my-5">
+                <div class="card-body p-5">
+                    <h1 class="fw-light">Editar Empresa</h1>
+
+                    <form action="/editar/<%= company._id %>" method="POST">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre de la empresa</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="<%= company.nombre %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mision" class="form-label">Misión / Descripción</label>
+                            <input type="text" class="form-control" id="mision" name="mision" value="<%= company.mision %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sede" class="form-label">Sede</label>
+                            <input type="text" class="form-control" id="sede" name="sede" value="<%= company.sede %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contacto" class="form-label">Contacto</label>
+                            <input type="text" class="form-control" id="contacto" name="contacto" value="<%= company.contacto %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="referencia" class="form-label">Referencia</label>
+                            <input type="text" class="form-control" id="referencia" name="referencia" value="<%= company.referencia %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sitioWeb" class="form-label">Sitio web</label>
+                            <input type="text" class="form-control" id="sitioWeb" name="sitioWeb" value="<%= company.sitioWeb %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mail" class="form-label">Mail</label>
+                            <input type="email" class="form-control" id="mail" name="mail" value="<%= company.mail %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" value="<%= company.telefono %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Actualizar empresa</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%- include('fragments/footer') %>
+        <%- include('fragments/js.ejs') %>
+    </body>
+</html>

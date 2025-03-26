@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ExpressJsBase</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Empresas Registradas</h1>
+            <a href="/crear" class="btn btn-primary mb-3">Crear Nueva Empresa</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% companies.forEach(function(company) { %>
+                        <tr>
+                            <td><%= company.nombre %></td>
+                            <td>
+                                <!-- Botón de Editar -->
+                                <a href="/editar/<%= company._id %>" class="btn btn-warning btn-sm">Editar</a>
+                                
+                                <!-- Formulario de eliminación -->
+                                <form action="/eliminar/<%= company._id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

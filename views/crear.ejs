@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Crear Empresa</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Crear Nueva Empresa</h1>
+            <form action="/crear" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="mision">Misión:</label>
+                    <textarea id="mision" name="mision" required class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="sede">Sede:</label>
+                    <input type="text" id="sede" name="sede" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contacto">Contacto:</label>
+                    <input type="text" id="contacto" name="contacto" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="referencia">Referencia:</label>
+                    <input type="text" id="referencia" name="referencia" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sitioWeb">Sitio Web:</label>
+                    <input type="text" id="sitioWeb" name="sitioWeb" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="mail">Correo Electrónico:</label>
+                    <input type="email" id="mail" name="mail" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Crear Empresa</button>
+            </form>
+        </div>
+    </body>
+</html>
