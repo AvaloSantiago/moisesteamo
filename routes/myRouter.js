@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Company = require('../models/Company');
 
-// Ruta principal para mostrar todas las empresas
+
 router.get("/", async (req, res) => {
     try {
         const companies = await Company.find();
@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-// Ruta para mostrar la página de edición de una empresa
+
 router.get("/editar/:id", async (req, res) => {
     try {
         const company = await Company.findById(req.params.id);
@@ -27,7 +27,7 @@ router.get("/editar/:id", async (req, res) => {
     }
 });
 
-// Ruta para actualizar una empresa (POST)
+
 router.post("/editar/:id", async (req, res) => {
     try {
         const { id } = req.params;
@@ -44,31 +44,31 @@ router.post("/editar/:id", async (req, res) => {
             telefono
         }, { new: true });
 
-        res.redirect("/");  // Redirige a la página principal después de la actualización
+        res.redirect("/");  
     } catch (err) {
         console.error("Error al actualizar la empresa:", err);
         res.status(500).send("Error al actualizar la empresa.");
     }
 });
 
-// Ruta para eliminar una empresa (POST)
+
 router.post("/eliminar/:id", async (req, res) => {
     try {
         const { id } = req.params;
         await Company.findByIdAndDelete(id);
-        res.redirect("/");  // Redirige a la página principal después de eliminar
+        res.redirect("/");  
     } catch (err) {
         console.error("Error al eliminar la empresa:", err);
         res.status(500).send("Error al eliminar la empresa.");
     }
 });
 
-// Ruta para mostrar el formulario para crear una nueva empresa
+
 router.get("/crear", (req, res) => {
     res.render("crear");
 });
 
-// Ruta para crear una nueva empresa (POST)
+
 router.post("/crear", async (req, res) => {
     try {
         const { nombre, mision, sede, contacto, referencia, sitioWeb, mail, telefono } = req.body;
@@ -85,7 +85,7 @@ router.post("/crear", async (req, res) => {
         });
 
         await newCompany.save();
-        res.redirect("/");  // Redirige a la página principal después de crear la empresa
+        res.redirect("/");  
     } catch (err) {
         console.error("Error al crear la empresa:", err);
         res.status(500).send("Error al crear la empresa.");
